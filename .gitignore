@@ -1,0 +1,6 @@
+/db.sqlite3
+/user/migrations
+/producer/migrations
+/user/__pycache__
+/producer/__pycache__
+/media
