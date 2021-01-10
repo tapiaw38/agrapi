@@ -82,6 +82,7 @@ class UserViewSet(mixins.RetrieveModelMixin,
         data = UserModelSerializer(user).data
         return Response(data)
 
+        
 '''
 
 class UserLoginAPIView(APIView):

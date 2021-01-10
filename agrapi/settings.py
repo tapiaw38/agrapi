@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'c@so)i40gdaix-+d_$w7&q(*yuo9xjf4ae7=s(+5t@1g99&kka'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1','www.agrapi.com.ar','agrapi.com.ar']
 
 # Users & Authentication
 AUTH_USER_MODEL = 'user.User'
@@ -133,20 +133,20 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.2/howto/static-files/
+# https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
+
 
 MEDIA_ROOT = (
     os.path.join(BASE_DIR, 'media')
 )
 MEDIA_URL = '/media/'
 
-# Config image file 
+# Config image file
 CONTENT_TYPES = ['image','video']
 MAX_UPLOAD_SIZE = '5242880'
 

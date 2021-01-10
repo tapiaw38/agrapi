@@ -27,7 +27,7 @@ class Producer(ProduModel):
         regex=r'\d{8,8}$',
         message= "Debes ingresar un número de DNI sin puntos."
     )
-    document = models.CharField(validators=[document_regex], max_length=8,unique=True)
+    document = models.CharField(validators=[document_regex], max_length=8)
 
     phone_regex = RegexValidator(
         regex=r'\d{10,10}$',

@@ -224,6 +224,7 @@ class LivestockAnimalPensSerializer(serializers.ModelSerializer):
     class Meta:
         model = LivestockAnimalPens
         fields = (
+                'id',
                 'orientation',
                 'building_material',
                 'roof_material',
@@ -238,6 +239,7 @@ class LivestockMarketingSerializer(serializers.ModelSerializer):
     class Meta:
         model = LivestockMarketing
         fields = (
+            'id',
             'number_slaughtered',
             'number_shorn',
             'amount_wool_hair',
@@ -253,6 +255,7 @@ class LivestockHealthSerializer(serializers.ModelSerializer):
     class Meta:
         model = LivestockHealth
         fields = (
+            'id',
             'type_technical_assistance',
             'vitamin_complex',
             'make_internal_deworming',
@@ -268,6 +271,7 @@ class LivestockReproductionSerializer(serializers.ModelSerializer):
     class Meta:
         model = LivestockReproduction
         fields = (
+            'id',
             'make_reproductive_management',
             'make_continuous_service',
             'make_corral_service',
@@ -279,6 +283,7 @@ class LivestockAnimalFeddingSerializer(serializers.ModelSerializer):
     class Meta:
         model = LivestockAnimalFeeding
         fields = (
+            'id',
             'feeding',
             'type_feeding',
             'daily_rations',
@@ -303,6 +308,7 @@ class ProductionLivestockSerializer(WritableNestedModelSerializer):
     class Meta:
         model = ProductionLivestock
         fields = (
+            'id',
             'type_activity',
             'surface',
             'destination',
@@ -331,6 +337,7 @@ class AgriculturalSalesChannelSerializer(serializers.ModelSerializer):
     class Meta:
         model = AgriculturalSalesChannel
         fields = (
+          'id',
           'is_collector',
           'is_cooperative',
           'is_exporter',
@@ -344,6 +351,7 @@ class AgriculturalHarvestSerializer(serializers.ModelSerializer):
     class Meta:
         model = AgriculturalHarvest
         fields = (
+            'id',
             'harvest_surface',
             'tons_production',
             'has_curtains_insulated',
@@ -356,6 +364,7 @@ class AgriculturalPestSerializer(serializers.ModelSerializer):
     class Meta:
         model = AgriculturalPests
         fields = (
+            'id',
             'type_pests',
             'pests_description',
             'make_pests_control',
@@ -368,6 +377,7 @@ class AgriculturalClimaticSerializer(serializers.ModelSerializer):
     class Meta:
         model = AgriculturalClimatic
         fields = (
+            'id',
             'factor',
             'risk',
             'damange_level',
@@ -377,6 +387,7 @@ class AgriculturalAttendanceSerializer(serializers.ModelSerializer):
     class Meta:
         model = AgriculturalAttendance
         fields = (
+            'id',
             'use_fertilizers',
             'use_food_organic',
             'use_pheromones',
@@ -394,6 +405,7 @@ class ProductionAgriculturalSerializer(WritableNestedModelSerializer):
     class Meta:
         model = ProductionAgricultural
         fields = (
+            'id',
             'activity_name',
             'surface',
             'destination',
@@ -414,6 +426,7 @@ class InstallationBarnSerializer(serializers.ModelSerializer):
     class Meta:
         model = InstallationBarn
         fields = (
+            'id',
             'surface',
             'lat',
             'lng',
@@ -423,6 +436,7 @@ class InstallationWellSerializer(serializers.ModelSerializer):
     class Meta:
         model = InstallationWell
         fields = (
+            'id',
             'is_active',
             'lat',
             'lng',
@@ -434,6 +448,7 @@ class ProductionInstallationSerializer(WritableNestedModelSerializer):
     class Meta:
         model = ProductionInstallation
         fields = (
+            'id',
             'has_windmills',
             'has_australian_tanks',
             'has_dams',
@@ -448,6 +463,7 @@ class ProductionIrrigationSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProductionIrrigation
         fields = (
+            'id',
             'type_irrigation',
             'pressurized_irrigation',
             'surface_irrigation',
@@ -462,6 +478,7 @@ class ProductionPropertySerializer(serializers.ModelSerializer):
     class Meta:
         model = ProductionProperty
         fields = (
+            'id',
             'land_tenure',
             'has_land_title',
             'cadastre_registration',
@@ -472,6 +489,7 @@ class ProductionMachineSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProductionMachine
         fields = (
+	    'id',
             'destination',
             'name_machine',
             'type_maquinary',
@@ -485,6 +503,7 @@ class ProductionServiceSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProductionService
         fields = (
+            'id',
             'has_service_aqua',
             'type_service_aqua',
             'has_service_energy',
@@ -507,6 +526,7 @@ class ProductionSerializer(WritableNestedModelSerializer):
     class Meta:
         model = Production
         fields = (
+            'id',
             'is_resident', 
             'district',
             'surface',
@@ -598,6 +618,7 @@ class ProducerSerializer(WritableNestedModelSerializer):
     class Meta:
         model = Producer
         fields = (
+            'id',
             'first_name',
             'last_name',
             'date_birth',
