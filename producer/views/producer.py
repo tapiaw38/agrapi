@@ -7,7 +7,9 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 
 # Filters
-from rest_framework.filters import SearchFilter, OrderingFilter
+#from rest_framework.filters import SearchFilter, OrderingFilter
+# django-filter
+from django_filters.rest_framework import FilterSet, filters
 
 # Models
 from producer.models import(
@@ -39,14 +41,30 @@ class StandardResultsSetPagination(PageNumberPagination):
             'results': data
         })
 
+# Django filters class
+class ProducerFilter(filters.FilterSet):
+
+    class Meta:
+        model = Department
+        fields = {'name': ['exact', 'in', 'startswith']}
+
+
+class PollsterFilter(filters.FilterSet):
+    department = filters.RelatedFilter(ProducerFilter, field_name='producer', queryset=Producer.objects.all())
+
+    class Meta:
+        model = Company
+        fields = {'name': ['exact', 'in', 'startswith']}
+
+
+
 class PollsterViewSet(viewsets.ModelViewSet):
     queryset = Pollster.objects.all()
     serializer_class = PollsterSerializer
     pagination_class = StandardResultsSetPagination
     #permission_classes = (IsAuthenticated, )
-        # Filters
-    filter_backends = (SearchFilter, OrderingFilter)
-    search_fields = ('id','user','producer')
+    # Filters
+    filter_class = PollsterFilter 
 
     def get_serializer(self, *args, **kwargs):
         if "data" in kwargs:
