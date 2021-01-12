@@ -46,7 +46,7 @@ class ProducerFilter(filters.FilterSet):
 
     class Meta:
         model = Producer
-        fields = {'name': ['exact', 'in', 'startswith']}
+        fields = {'document': ['exact', 'in', 'startswith']}
 
 
 class PollsterFilter(filters.FilterSet):
@@ -54,7 +54,7 @@ class PollsterFilter(filters.FilterSet):
 
     class Meta:
         model = Pollster
-        fields = {'name': ['exact', 'in', 'startswith']}
+        fields = {'producer': ['exact', 'in', 'startswith']}
 
 
 
