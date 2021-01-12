@@ -7,7 +7,7 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 
 # Filters
-from rest_framework.filters import SearchFilter, OrderingFilter
+from rest_framework.filters import SearchFilter, OrderingFilter, DjangoFilterBackend
 
 # Models
 from producer.models import(
