@@ -45,7 +45,7 @@ class StandardResultsSetPagination(PageNumberPagination):
 class ProducerFilter(filters.FilterSet):
 
     class Meta:
-        model = Department
+        model = Producer
         fields = {'name': ['exact', 'in', 'startswith']}
 
 
@@ -53,7 +53,7 @@ class PollsterFilter(filters.FilterSet):
     department = filters.RelatedFilter(ProducerFilter, field_name='producer', queryset=Producer.objects.all())
 
     class Meta:
-        model = Company
+        model = Pollster
         fields = {'name': ['exact', 'in', 'startswith']}
 
 
