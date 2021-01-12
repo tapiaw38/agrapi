@@ -1,6 +1,11 @@
-/db.sqlite3
-/user/migrations
-/producer/migrations
-/user/__pycache__
-/producer/__pycache__
-/media
+migrations
+__pycache__
+.vscode/
+env/
+media/
+bolsadeempleo/settings.py
+db.sqlite3
+user/migrations
+user/__pycache__
+producer/migrations
+producer/__pycache__
