@@ -7,7 +7,7 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 
 # Filters
-from rest_framework.filters import SearchFilter, OrderingFilter,DjangoFilterBackend
+from rest_framework.filters import SearchFilter, OrderingFilter
 
 # Models
 from producer.models import(
@@ -45,8 +45,7 @@ class PollsterViewSet(viewsets.ModelViewSet):
     pagination_class = StandardResultsSetPagination
     #permission_classes = (IsAuthenticated, )
         # Filters
-    #filter_backends = (SearchFilter, OrderingFilter)
-    filter_backends = [DjangoFilterBackend]
+    filter_backends = (SearchFilter, OrderingFilter)
     search_fields = ('id','user','producer')
 
     def get_serializer(self, *args, **kwargs):
