@@ -45,7 +45,8 @@ class PollsterViewSet(viewsets.ModelViewSet):
     pagination_class = StandardResultsSetPagination
     #permission_classes = (IsAuthenticated, )
         # Filters
-    filter_backends = (SearchFilter, OrderingFilter)
+    #filter_backends = (SearchFilter, OrderingFilter)
+    filter_backends = [DjangoFilterBackend]
     search_fields = ('id','user','producer')
 
     def get_serializer(self, *args, **kwargs):
