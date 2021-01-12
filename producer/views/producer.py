@@ -46,7 +46,7 @@ class PollsterViewSet(viewsets.ModelViewSet):
     #permission_classes = (IsAuthenticated, )
         # Filters
     filter_backends = (SearchFilter, OrderingFilter)
-    search_fields = ('last_name', 'first_name', 'document')
+    search_fields = ('producer')
 
     def get_serializer(self, *args, **kwargs):
         if "data" in kwargs:
