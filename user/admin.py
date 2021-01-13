@@ -9,7 +9,7 @@ class CustomUserAdmin(UserAdmin):
     list_display = ('email','username','first_name','phone_number','is_staff','is_pollster', 'is_admin', 'is_verified')
     list_filter = ('is_admin','is_pollster', 'is_staff','created','modified')
     
-    actions = ['is_pollster','is_not_pollster']
+    actions = ['is_pollster','is_not_pollster','is_admin','is_not_admin']
 
     def is_pollster(self, request, queryset):
         '''Make pollster is false'''
@@ -20,6 +20,16 @@ class CustomUserAdmin(UserAdmin):
         '''Make pollster is true'''
         queryset.update(is_pollster=True)
     is_not_pollster.short_description = 'Make selected user is pollster'
+
+    def is_admin(self, request, queryset):
+        '''Make admin is false'''
+        queryset.update(is_admin=True)
+    is_admin.short_description = 'Make selected user is not admin'
+
+    def is_not_admin(self, request, queryset):
+        '''Make admin is true'''
+        queryset.update(is_admin=False)
+    is_admin.short_description = 'Make selected user is admin'
 
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):

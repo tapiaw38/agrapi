@@ -7,7 +7,9 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 
 # Filters
-from rest_framework.filters import SearchFilter, OrderingFilter
+#from rest_framework.filters import SearchFilter, OrderingFilter
+from rest_framework import filters
+
 
 # Models
 from producer.models import(
@@ -45,8 +47,9 @@ class PollsterViewSet(viewsets.ModelViewSet):
     pagination_class = StandardResultsSetPagination
     #permission_classes = (IsAuthenticated, )
         # Filters
-    filter_backends = (SearchFilter, OrderingFilter)
-    search_fields = ('last_name', 'first_name', 'document')
+    #filter_backends = (SearchFilter, OrderingFilter)
+    filter_backends = [filters.SearchFilter] 
+    search_fields = ['id', 'producer__first_name', 'producer__last_name','producer__document']
 
     def get_serializer(self, *args, **kwargs):
         if "data" in kwargs:

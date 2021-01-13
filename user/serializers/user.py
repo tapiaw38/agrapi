@@ -40,6 +40,8 @@ class UserModelSerializer(serializers.ModelSerializer):
             'last_name',
             'email',
             'phone_number',
+            'is_admin',
+            'is_pollster',
             'profile',
         )
         
@@ -86,7 +88,7 @@ class UserSignUpSerializer(serializers.Serializer):
         """ Creacionnde usuario y perfil. """
 
         data.pop('password_confirmation')
-        user = User.objects.create_user(**data, is_verified=False, is_pollster=False)
+        user = User.objects.create_user(**data, is_verified=False, is_pollster=False, is_admin=False)
         profile = Profile.objects.create(user=user)
         #self.send_confirmation_email(user)
         return user

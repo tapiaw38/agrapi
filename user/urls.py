@@ -11,6 +11,7 @@ from .views import user as user_views
 
 router = DefaultRouter()
 router.register(r'users', user_views.UserViewSet, basename='users')
+router.register('pollsters',user_views.ListUserViewSet, basename='pollsters')
 
 urlpatterns = [
     #path('', include(router.urls))
