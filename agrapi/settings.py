@@ -150,7 +150,7 @@ MEDIA_ROOT = (
 
 MEDIA_URL = '/media/'
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Config image file
 CONTENT_TYPES = ['image','video']
@@ -159,7 +159,6 @@ MAX_UPLOAD_SIZE = '5242880'
 APPEND_SLASH=False
 
 # Django Rest Framework
-
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework.renderers.JSONRenderer',
