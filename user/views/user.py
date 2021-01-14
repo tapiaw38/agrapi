@@ -20,6 +20,7 @@ from user.serializers.user import (
     UserLoginSerializer,
     UserModelSerializer,
     UserSignUpSerializer,
+    UserDataSerializer,
 )
 
 # Models
@@ -84,7 +85,7 @@ class UserViewSet(mixins.RetrieveModelMixin,
 
 class ListUserViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = User.objects.all()
-    serializer_class = UserModelSerializer
+    serializer_class = UserDataSerializer
         
 '''
 

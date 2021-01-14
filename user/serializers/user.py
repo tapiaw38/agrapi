@@ -41,7 +41,6 @@ class UserModelSerializer(serializers.ModelSerializer):
             'email',
             'phone_number',
             'is_admin',
-            'is_pollster',
             'profile',
         )
         
@@ -143,7 +142,52 @@ class UserLoginSerializer(serializers.Serializer):
 
     def create(self, data):
         """ Genaracion o recuperación de nuevo token. """
-
         token, created = Token.objects.get_or_create(user=self.context['user'])
 
         return self.context['user'], token.key
+
+class UserDataSerializer(serializers.ModelSerializer):
+    """ User data serializer """
+
+    profile = ProfileModelSerializer(read_only=True)
+
+    class Meta:
+        """ Meta class """
+        model = User
+        fields = (
+            'username',
+            'first_name',
+            'last_name',
+            'email',
+            'phone_number',
+            'is_admin',
+            'is_pollster',
+            'profile',
+        )
+    
+    def update(self, instance, validated_data):
+        profile_data = validated_data.pop('profile')
+        profile = instance.profile
+
+        instance.username = validated_data.get('username', instance.username)
+        instance.email = validated_data.get('email', instance.email)
+        instance.first_name = validated_data.get('first_name', instance.first_name)
+        instance.last_name = validated_data.get('last_name', instance.last_name)
+        instance.phone_number = validated_data.get('phone_number', instance.phone_number)
+        instance.is_pollster = validated_data.get('is_pollster', instance.is_pollster)
+        instance.is_admin = validated_data.get('is_admin', instance.is_admin)
+        
+        
+        instance.save()
+
+        profile.picture = profile_data.get(
+            'picture',
+            profile.picture
+        )
+        profile.polls = profile_data.get(
+            'polls',
+            profile.polls
+         )
+        profile.save()
+
+        return instance
