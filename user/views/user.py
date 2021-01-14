@@ -83,8 +83,9 @@ class UserViewSet(mixins.RetrieveModelMixin,
         data = UserModelSerializer(user).data
         return Response(data)
 
-class ListUserViewSet(viewsets.ReadOnlyModelViewSet):
+class ListUserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
+    lookup_field = 'username'
     serializer_class = UserDataSerializer
         
 '''

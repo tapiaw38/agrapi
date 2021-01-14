@@ -164,7 +164,7 @@ class UserDataSerializer(serializers.ModelSerializer):
             'is_pollster',
             'profile',
         )
-    
+
     def update(self, instance, validated_data):
         profile_data = validated_data.pop('profile')
         profile = instance.profile
@@ -176,7 +176,6 @@ class UserDataSerializer(serializers.ModelSerializer):
         instance.phone_number = validated_data.get('phone_number', instance.phone_number)
         instance.is_pollster = validated_data.get('is_pollster', instance.is_pollster)
         instance.is_admin = validated_data.get('is_admin', instance.is_admin)
-        
         
         instance.save()
 
