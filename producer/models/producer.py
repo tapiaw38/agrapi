@@ -21,7 +21,7 @@ class Producer(ProduModel):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     date_birth = models.DateField()
-    gender = models.CharField(choices=GENDER_CHOICES, max_length=10)
+    gender = models.CharField(max_length=10)
 
     document_regex = RegexValidator(
         regex=r'\d{8,8}$',
