@@ -9,3 +9,6 @@ user/migrations
 user/__pycache__
 producer/migrations
 producer/__pycache__
+user/serializers/__pycache__
+user/__pycache__
+user/views/__pycache__
