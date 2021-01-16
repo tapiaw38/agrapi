@@ -16,7 +16,7 @@ class Production(models.Model):
     is_resident = models.BooleanField(default=False)
     district = models.CharField(max_length=50)
     surface = models.FloatField(default=0)
-    road_state = models.CharField(max_length=200)
+    road_state = models.CharField(max_length=200,blank=True, null=True)
     lat = models.FloatField(default=0)
     lng = models.FloatField(default=0)
     has_renspa = models.BooleanField(default=False)
