@@ -65,6 +65,7 @@ class AgroindustrialFoodProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = AgroindustrialFoodProduct
         fields = (
+            'id',
             'name_product',
             'validity',
             'origin',
@@ -76,6 +77,7 @@ class AgroindustrialToolsSerializer(serializers.ModelSerializer):
     class Meta:
         model = AgroindustrialTools
         fields = (
+            'id',
             'name_tool',
             'type_tool', 
             'number_tools', 
@@ -88,6 +90,7 @@ class ProductionAgroindustrialSerializer(WritableNestedModelSerializer):
     class Meta:
         model = ProductionAgroindustrial
         fields = (
+            'id',
             'description',
             'raw_material',
             'is_mechanized',
@@ -102,6 +105,7 @@ class LivestockSalesChannelSerializer(serializers.ModelSerializer):
     class Meta:
         model = LivestockSalesChannel
         fields = (
+          'id',
           'is_collector',
           'is_cooperative',
           'is_exporter',
@@ -115,6 +119,7 @@ class LivestockAquacultureCycleSerializer(serializers.ModelSerializer):
     class Meta:
         model = LivestockAquacultureCycle
         fields = (
+            'id',
             'orientation',
             'existence',
         )
@@ -123,6 +128,7 @@ class LivestockBeekeepingCycleSerializer(serializers.ModelSerializer):
     class Meta:
         model = LivestockBeekeepingCycle
         fields = (
+            'id',
             'kind_bee',
             'has_bee_hives',
             'type_bee_hives',
@@ -139,6 +145,7 @@ class LivestockRabbitCycleSerializer(serializers.ModelSerializer):
     class Meta:
         model = LivestockRabbitCycle
         fields = (
+            'id',
             'orientation',
             'number_breeding_males',
             'number_breeding_females',
@@ -149,6 +156,7 @@ class LivestockPoultryCycleSerializer(serializers.ModelSerializer):
     class Meta:
         model = LivestockPoultryCycle
         fields = (
+            'id',
             'is_intensive_poultry',
             'number_broilers_incubated',
             'breeding_males',
@@ -163,6 +171,7 @@ class LivestockLlamaCycleSerializer(serializers.ModelSerializer):
     class Meta:
         model = LivestockLlamaCycle
         fields = (
+            'id',
             'number_chitas_teques',
             'number_maltones',
             'number_janachos',
@@ -174,6 +183,7 @@ class LivestockPigCycleSerializer(serializers.ModelSerializer):
     class Meta:
         model = LivestockPigCycle
         fields = (
+            'id',
             'up_two_months',
             'older_two_months',
             'less_four_months',
@@ -186,6 +196,7 @@ class LivestockGoatCycleSerializer(serializers.ModelSerializer):
     class Meta:
         model = LivestockGoatCycle
         fields = (
+            'id',
             'goats_under_six_months',
             'goats_six_months_to_first_calving',
             'number_goats',
@@ -197,6 +208,7 @@ class LivestockSheepCycleSerializer(serializers.ModelSerializer):
     class Meta:
         model = LivestockSheepCycle
         fields = (
+            'id',
             'sheep_under_six_months',
             'sheep_older_six_months_to_calving',
             'sheep_older_six_months_one_year',
@@ -209,6 +221,7 @@ class LivestockBovineCycleSerializer(serializers.ModelSerializer):
     class Meta:
         model = LivestockBovineCycle
         fields = (
+            'id',
             'calves_under_one_year',
             'heifers_one_to_two_years',
             'heifers_over_two_years',
@@ -489,7 +502,7 @@ class ProductionMachineSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProductionMachine
         fields = (
-	    'id',
+	        'id',
             'destination',
             'name_machine',
             'type_maquinary',
@@ -549,6 +562,7 @@ class WorkerSerializer(serializers.ModelSerializer):
     class Meta:
         model = ActivityWorker
         fields = (
+            'id',
             'is_formal_worker',
             'type_person',
             'is_resident',
@@ -563,6 +577,7 @@ class ActivitySerializer(WritableNestedModelSerializer):
     class Meta:
         model = ProducerActivity
         fields = (
+            'id',
             'works_under_dependency',
             'is_monotributista',
             'category',
@@ -574,6 +589,7 @@ class VehicleSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProducerVehicle
         fields = (
+            'id',
             'name_vehicle',
             'use_trailer',
             'type_trailer',
@@ -584,6 +600,7 @@ class PersonSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProducerPerson
         fields = (
+            'id',
             'family_relation',
             'first_name',
             'last_name',
@@ -600,6 +617,7 @@ class HomeSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProducerHome
         fields = (
+            'id',
             'district',
             'address',
             'type_recidence',
