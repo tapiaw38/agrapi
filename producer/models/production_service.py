@@ -22,14 +22,14 @@ class ProductionService(models.Model):
         related_name="production_service",
         on_delete=models.CASCADE
         )
-    has_service_aqua = models.BooleanField() 
-    type_service_aqua = models.CharField(max_length=30)
-    has_service_energy = models.BooleanField()
-    type_service_energy = models.CharField(max_length=100)
-    has_rural_energy = models.BooleanField()
-    has_generator = models.BooleanField()
-    has_hydraulic_generator = models.BooleanField()
-    has_solar_panels = models.BooleanField()
+    has_service_aqua = models.BooleanField(default=False) 
+    type_service_aqua = models.CharField(max_length=30, blank=True, null=True)
+    has_service_energy = models.BooleanField(default=False)
+    type_service_energy = models.CharField(max_length=100, blank=True, null=True)
+    has_rural_energy = models.BooleanField(default=False)
+    has_generator = models.BooleanField(default=False)
+    has_hydraulic_generator = models.BooleanField(default=False)
+    has_solar_panels = models.BooleanField(default=False)
 
     def __str__(self):
         return 'Servicios de Producción {}'.format(self.production.producer)

@@ -20,7 +20,7 @@ class ProductionProperty(models.Model):
         on_delete=models.CASCADE
         )
     
-    land_tenure = models.CharField(max_length=30)
-    has_land_title = models.BooleanField()
+    land_tenure = models.CharField(max_length=30, blank=True, null=True)
+    has_land_title = models.BooleanField(default=False)
     cadastre_registration = models.CharField(max_length=30,blank=True, null=True)
     starting_number = models.CharField(max_length=30,blank=True, null=True)

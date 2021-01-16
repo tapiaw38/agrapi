@@ -13,13 +13,13 @@ class Production(models.Model):
         related_name='production',
         on_delete=models.CASCADE
         )
-    is_resident = models.BooleanField()
+    is_resident = models.BooleanField(default=False)
     district = models.CharField(max_length=50)
-    surface = models.FloatField()
+    surface = models.FloatField(default=0)
     road_state = models.CharField(max_length=200)
-    lat = models.FloatField()
-    lng = models.FloatField()
-    has_renspa = models.BooleanField()
+    lat = models.FloatField(default=0)
+    lng = models.FloatField(default=0)
+    has_renspa = models.BooleanField(default=False)
 
     def __str__(self):
         return 'Producción {}'.format(self.producer)
