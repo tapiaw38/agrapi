@@ -17,8 +17,8 @@ class Production(models.Model):
     district = models.CharField(max_length=50, blank=True, null=True)
     surface = models.FloatField(default=0)
     road_state = models.CharField(max_length=200,blank=True, null=True)
-    lat = models.FloatField(default=0)
-    lng = models.FloatField(default=0)
+    lat = models.FloatField(default=0.0)
+    lng = models.FloatField(default=0.0)
     has_renspa = models.BooleanField(default=False)
 
     def __str__(self):
