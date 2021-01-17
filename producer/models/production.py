@@ -14,7 +14,7 @@ class Production(models.Model):
         on_delete=models.CASCADE
         )
     is_resident = models.BooleanField(default=False)
-    district = models.CharField(max_length=50)
+    district = models.CharField(max_length=50, blank=True, null=True)
     surface = models.FloatField(default=0)
     road_state = models.CharField(max_length=200,blank=True, null=True)
     lat = models.FloatField(default=0)

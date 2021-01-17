@@ -23,10 +23,10 @@ class ProductionMachine(models.Model):
         related_name="production_machine",
         on_delete=models.CASCADE
         )
-    destination = models.CharField(max_length=30)
-    name_machine = models.CharField(max_length=100)
-    type_maquinary = models.CharField(max_length=30)
-    model = models.CharField(max_length=30)
-    state_machine = models.CharField(max_length=50)
-    age = models.CharField(max_length=50)
+    destination = models.CharField(max_length=30,blank=True, null=True)
+    name_machine = models.CharField(max_length=100, blank=True, null=True)
+    type_maquinary = models.CharField(max_length=30, blank=True, null=True)
+    model = models.CharField(max_length=30, blank=True, null=True)
+    state_machine = models.CharField(max_length=50, blank=True, null=True)
+    age = models.CharField(max_length=50, blank=True, null=True)
     observation = models.CharField(max_length=100,blank=True, null=True)
