@@ -20,12 +20,12 @@ class LivestockHealth(models.Model):
         related_name="livestock_health",
         on_delete=models.CASCADE
         )
-    type_technical_assistance = models.CharField(max_length=20)
+    type_technical_assistance = models.CharField(max_length=20, blank=True, null=True)
     vitamin_complex = models.CharField(max_length=30, blank=True, null=True)
-    make_internal_deworming = models.BooleanField()
-    make_external_deworming = models.BooleanField()
+    make_internal_deworming = models.BooleanField(default=False)
+    make_external_deworming = models.BooleanField(default=False)
     type_antiparasitic = models.CharField(max_length=30, blank=True, null=True)
-    make_vaccination = models.BooleanField()
+    make_vaccination = models.BooleanField(default=False)
     type_vaccination = models.CharField(max_length=30, blank=True, null=True)
     type_disease = models.CharField(max_length=20, blank=True, null=True)
     other_practices = models.CharField(max_length=100, blank=True, null=True)

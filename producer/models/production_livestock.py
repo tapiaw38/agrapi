@@ -19,10 +19,10 @@ class ProductionLivestock(models.Model):
         "producer.Production",
         related_name="production_livestock",
         on_delete=models.CASCADE)
-    type_activity = models.CharField(max_length=30)
+    type_activity = models.CharField(max_length=30, blank=True, null=True)
     surface = models.FloatField(default=0)
-    destination = models.CharField(max_length=30)
-    make_technical_assistance = models.BooleanField()
+    destination = models.CharField(max_length=30, blank=True, null=True)
+    make_technical_assistance = models.BooleanField(default=False)
     problems = models.CharField(max_length=200, blank=True, null=True)
     suggestion = models.CharField(max_length=200, blank=True, null=True)
 

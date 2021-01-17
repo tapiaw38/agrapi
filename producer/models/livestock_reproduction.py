@@ -11,9 +11,9 @@ class LivestockReproduction(models.Model):
         related_name="livestock_reproduction",
         on_delete=models.CASCADE
         )
-    make_reproductive_management = models.BooleanField()
-    make_continuous_service = models.BooleanField()
-    make_corral_service = models.BooleanField()
-    make_artificial_insemination = models.BooleanField()
-    make_embryo_transplant = models.BooleanField()
+    make_reproductive_management = models.BooleanField(default=False)
+    make_continuous_service = models.BooleanField(default=False)
+    make_corral_service = models.BooleanField(default=False)
+    make_artificial_insemination = models.BooleanField(default=False)
+    make_embryo_transplant = models.BooleanField(default=False)
     other_practices = models.CharField(max_length=100, blank=True, null=True)

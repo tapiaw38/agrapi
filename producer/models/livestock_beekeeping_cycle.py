@@ -23,7 +23,7 @@ class LivestockBeekeepingCycle(models.Model):
         on_delete=models.CASCADE
         )
     kind_bee = models.CharField(max_length=20, blank=True, null=True)
-    has_bee_hives = models.BooleanField()
+    has_bee_hives = models.BooleanField(default=False)
     type_bee_hives = models.CharField(max_length=20, blank=True, null=True)
     number_drawers = models.PositiveIntegerField(default=0)
     alsas_drawer = models.PositiveIntegerField(default=0)
@@ -31,4 +31,4 @@ class LivestockBeekeepingCycle(models.Model):
     honey_stones = models.PositiveIntegerField(default=0)
     pollination_period = models.CharField(max_length=50, blank=True, null=True)
     pollinated_flower = models.CharField(max_length=50, blank=True, null=True)
-    has_renapa = models.BooleanField()
+    has_renapa = models.BooleanField(default=False)
