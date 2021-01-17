@@ -10,12 +10,12 @@ class ProductionAgricultural(models.Model):
         related_name="production_agricultural",
         on_delete=models.CASCADE)
     name = models.CharField(max_length=15, default="Agricola")
-    activity_name = models.CharField(max_length=50) 
-    surface = models.FloatField()
-    destination = models.CharField(max_length=20)
-    sowing = models.CharField(max_length=20)
-    type_sowing = models.CharField(max_length=20)
-    age = models.PositiveIntegerField()
+    activity_name = models.CharField(max_length=50, blank=True, null=True) 
+    surface = models.FloatField(default=0)
+    destination = models.CharField(max_length=20, blank=True, null=True)
+    sowing = models.CharField(max_length=20, blank=True, null=True)
+    type_sowing = models.CharField(max_length=20, blank=True, null=True)
+    age = models.PositiveIntegerField(default=0)
     problems = models.CharField(max_length=100, blank=True, null=True)
     suggestion = models.CharField(max_length=100, blank=True, null=True)
 
