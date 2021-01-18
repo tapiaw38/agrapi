@@ -277,6 +277,7 @@ class LivestockHealthSerializer(serializers.ModelSerializer):
             'make_vaccination',
             'type_vaccination',
             'type_disease',
+            'name_disease',
             'other_practices',
         )
 
@@ -547,6 +548,7 @@ class ProductionSerializer(WritableNestedModelSerializer):
             'lat',
             'lng',
             'has_renspa',
+            'has_renaf',
             'production_property',
             'production_service',
             'production_installation',
