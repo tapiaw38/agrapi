@@ -13,7 +13,7 @@ DISEASE_CHOICES = (
 )
 
 class LivestockHealth(models.Model):
-    """ Modelo Sanidad, vacunas y enfermedades del tipo de ganado"""
+    """ Modelo Sanidad, vacunas y enfermedades del tipo de ganado """
 
     production_livestock = models.OneToOneField(
         "producer.ProductionLivestock",
