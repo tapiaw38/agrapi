@@ -28,4 +28,5 @@ class LivestockHealth(models.Model):
     make_vaccination = models.BooleanField(default=False)
     type_vaccination = models.CharField(max_length=30, blank=True, null=True)
     type_disease = models.CharField(max_length=20, blank=True, null=True)
+    name_disease = models.CharField(max_length=50)
     other_practices = models.CharField(max_length=100, blank=True, null=True)

@@ -20,6 +20,7 @@ class Production(models.Model):
     lat = models.FloatField(default=0)
     lng = models.FloatField(default=0)
     has_renspa = models.BooleanField(default=False)
+    has_renaf = models.BooleanField(default=False)
 
     def __str__(self):
         return 'Producción {}'.format(self.producer)
