@@ -12,9 +12,9 @@ class AgriculturalAttendance(models.Model):
         related_name="agricultural_attendance",
         on_delete=models.CASCADE
         )
-    use_fertilizers = models.BooleanField()
-    use_food_organic = models.BooleanField()
-    use_pheromones = models.BooleanField()
-    use_hail_mesh = models.BooleanField()
-    make_frost_control = models.BooleanField()
+    use_fertilizers = models.BooleanField(default=False)
+    use_food_organic = models.BooleanField(default=False)
+    use_pheromones = models.BooleanField(default=False)
+    use_hail_mesh = models.BooleanField(default=False)
+    make_frost_control = models.BooleanField(default=False)
     other_practices = models.CharField(max_length=40, blank=True, null=True)

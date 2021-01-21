@@ -19,6 +19,6 @@ class AgriculturalClimatic(models.Model):
         related_name="agricultural_climatic",
         on_delete=models.CASCADE
         )
-    factor = models.CharField(max_length=100)
-    risk = models.CharField(max_length=50)
-    damange_level = models.CharField(max_length=50)
+    factor = models.CharField(max_length=100, blank=True, null=True)
+    risk = models.CharField(max_length=50, blank=True, null=True)
+    damange_level = models.CharField(max_length=50, blank=True, null=True)

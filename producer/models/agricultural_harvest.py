@@ -13,11 +13,11 @@ class AgriculturalHarvest(models.Model):
         on_delete=models.CASCADE
         )
 
-    harvest_surface = models.FloatField()
-    tons_production = models.FloatField()
-    has_curtains_insulated = models.BooleanField()
+    harvest_surface = models.FloatField(default=0)
+    tons_production = models.FloatField(default=0)
+    has_curtains_insulated = models.BooleanField(default=False)
     plant_length_curtains = models.FloatField(default=0)
     plant_species_curtains = models.CharField(max_length=100, blank=True, null=True)
-    harvest_time = models.CharField(max_length=30)
+    harvest_time = models.CharField(max_length=30, blank=True, null=True)
 
     

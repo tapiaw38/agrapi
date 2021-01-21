@@ -18,9 +18,9 @@ class AgriculturalPests(models.Model):
         related_name="agricultural_pests",
         on_delete=models.CASCADE
         )
-    type_pests = models.CharField(max_length=20)
+    type_pests = models.CharField(max_length=20,blank=True, null=True)
     pests_description = models.CharField(max_length=100, blank=True, null=True)
-    make_pests_control = models.BooleanField()
-    make_pesticide = models.BooleanField()
+    make_pests_control = models.BooleanField(default=False)
+    make_pesticide = models.BooleanField(default=False)
     type_pesticide = models.CharField(max_length=40, blank=True, null=True)
     other_practices= models.CharField(max_length=120, blank=True, null=True)
