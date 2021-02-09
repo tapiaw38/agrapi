@@ -3,7 +3,6 @@ __pycache__
 .vscode/
 env/
 media/
-bolsadeempleo/settings.py
 db.sqlite3
 user/migrations
 user/__pycache__
