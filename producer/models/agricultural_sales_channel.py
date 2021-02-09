@@ -7,8 +7,8 @@ class AgriculturalSalesChannel(models.Model):
     """ Modelo canal de ventas 
     relacionado con la produccion """
 
-    production_agricultural = models.OneToOneField(
-        "producer.ProductionAgricultural",
+    agricultural_harvest = models.OneToOneField(
+        "producer.AgriculturalHarvest",
         related_name="agricultural_sales_channel",
         on_delete=models.CASCADE
         )
@@ -19,7 +19,8 @@ class AgriculturalSalesChannel(models.Model):
     use_fair = models.BooleanField(default=False)
     use_industry = models.BooleanField(default=False)
     use_fridge = models.BooleanField(default=False)
+    make_direct_sale = models.BooleanField(default=False)
 
     def __str__(self):
-        return 'Canal de ventas {}'.format(self.production_agricultural)
+        return 'Canal de ventas {}'.format(self.agricultural_harvest)
     

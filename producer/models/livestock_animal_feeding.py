@@ -20,6 +20,7 @@ class LivestockAnimalFeeding(models.Model):
         related_name="livestock_animal_feeding",
         on_delete=models.CASCADE
         )
-    feeding = models.CharField(max_length=30, blank=True, null=True)
-    type_feeding = models.CharField(max_length=30, blank=True, null=True)
+    feeding = models.CharField(max_length=100, blank=True, null=True)
+    type_feeding = models.CharField(max_length=50, blank=True, null=True)
     daily_rations = models.FloatField(default=0)
+    description = models.CharField(max_length=100, blank=True, null=True)

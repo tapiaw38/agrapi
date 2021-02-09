@@ -8,7 +8,7 @@ class LivestockGoatCycle(models.Model):
     """ Modelo del ciclo parino 
     de la produccion ganadera"""
     
-    production_livestock = models.OneToOneField(
+    production_livestock = models.ForeignKey(
         "producer.ProductionLivestock",
         related_name="livestock_goat_cycle",
         on_delete=models.CASCADE

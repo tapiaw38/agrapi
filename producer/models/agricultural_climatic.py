@@ -21,4 +21,4 @@ class AgriculturalClimatic(models.Model):
         )
     factor = models.CharField(max_length=100, blank=True, null=True)
     risk = models.CharField(max_length=50, blank=True, null=True)
-    damange_level = models.CharField(max_length=50, blank=True, null=True)
+    description = models.CharField(max_length=100, blank=True, null=True)

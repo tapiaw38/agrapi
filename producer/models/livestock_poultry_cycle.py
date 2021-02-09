@@ -8,17 +8,19 @@ class LivestockPoultryCycle(models.Model):
     """ Ciclo Avicola 
     de la produccion ganadera """
     
-    production_livestock = models.OneToOneField(
+    production_livestock = models.ForeignKey(
         "producer.ProductionLivestock",
         related_name="livestock_poultry_cycle",
         on_delete=models.CASCADE
         )
-    is_intensive_poultry = models.BooleanField()
-    number_broilers_incubated = models.PositiveIntegerField(default=0)
-    breeding_males = models.PositiveIntegerField(default=0)
-    number_eggs_chickens_babies = models.PositiveIntegerField(default=0)
+    is_intensive_poultry = models.BooleanField(default=False)
+    has_hatchery = models.BooleanField(default=False)
     number_incubators = models.PositiveIntegerField(default=0)
-    number_broilers_fattening = models.PositiveIntegerField(default=0)
-    number_breeding_layers = models.PositiveIntegerField(default=0)
-    existence = models.CharField(max_length=50, blank=True, null=True)
+    number_hatching_eggs = models.PositiveIntegerField(default=0)
+    chicks_one_two_months = models.PositiveIntegerField(default=0)
+    chicks_three_five_months = models.PositiveIntegerField(default=0)
+    females_older_six_months = models.PositiveIntegerField(default=0)
+    number_broiler_chickens = models.PositiveIntegerField(default=0)
+    number_breeder_layers = models.PositiveIntegerField(default=0)
+    number_breeding_males = models.PositiveIntegerField(default=0)
     

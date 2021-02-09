@@ -7,7 +7,7 @@ class AgriculturalHarvest(models.Model):
     """ Modelo de datos relacionado 
     con las cosecha de la producion """
 
-    production_agricultural = models.OneToOneField(
+    production_agricultural = models.ForeignKey(
         "producer.ProductionAgricultural",
         related_name="agricultural_harvest",
         on_delete=models.CASCADE
@@ -15,9 +15,6 @@ class AgriculturalHarvest(models.Model):
 
     harvest_surface = models.FloatField(default=0)
     tons_production = models.FloatField(default=0)
-    has_curtains_insulated = models.BooleanField(default=False)
-    plant_length_curtains = models.FloatField(default=0)
-    plant_species_curtains = models.CharField(max_length=100, blank=True, null=True)
     harvest_time = models.CharField(max_length=30, blank=True, null=True)
 
     

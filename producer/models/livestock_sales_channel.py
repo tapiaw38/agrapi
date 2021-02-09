@@ -7,8 +7,8 @@ class LivestockSalesChannel(models.Model):
     """ Modelo canal de ventas 
     relacionado con la produccion """
 
-    production_livestock = models.OneToOneField(
-        "producer.ProductionLivestock",
+    livestock_marketing = models.OneToOneField(
+        "producer.LivestockMarketing",
         related_name="livestock_sales_channel",
         on_delete=models.CASCADE
         )
@@ -19,6 +19,7 @@ class LivestockSalesChannel(models.Model):
     use_fair = models.BooleanField(default=False)
     use_industry = models.BooleanField(default=False)
     use_fridge = models.BooleanField(default=False)
+    make_direct_sale = models.BooleanField(default=False)
 
     def __str__(self):
-        return 'Canal de ventas {}'.format(self.production_livestock)
+        return 'Canal de ventas {}'.format(self.livestock_marketing)

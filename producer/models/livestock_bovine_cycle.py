@@ -6,7 +6,7 @@ from django.db import models
 class LivestockBovineCycle(models.Model):
     """ Modelo del ciclo bovino de la produccion ganadera """
     
-    production_livestock = models.OneToOneField(
+    production_livestock = models.ForeignKey(
         "producer.ProductionLivestock",
         related_name="livestock_bovine_cycle",
         on_delete=models.CASCADE
