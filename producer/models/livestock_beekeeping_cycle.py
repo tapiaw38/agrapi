@@ -2,7 +2,8 @@
 
 # Django
 from django.db import models
-
+# utilities
+from utils.models import ProduModel
 
 HIVES_CHOICES = (
     ('Propias','Propias'),
@@ -13,7 +14,7 @@ DROWER_CHOICES = (
     ('Moviles','Moviles')
 )
 
-class LivestockBeekeepingCycle(models.Model):
+class LivestockBeekeepingCycle(ProduModel):
     """ Ciclo de apicultura de la 
     produccion ganadera """
     

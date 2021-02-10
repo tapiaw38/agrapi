@@ -2,9 +2,11 @@
 
 # Django
 from django.db import models
+# utilities
+from utils.models import ProduModel
 
 
-class LivestockAquacultureCycle(models.Model):
+class LivestockAquacultureCycle(ProduModel):
     """ Ciclo de acuicultura de la produccion ganadera """
 
     production_livestock = models.ForeignKey(

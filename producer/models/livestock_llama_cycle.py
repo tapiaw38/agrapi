@@ -2,9 +2,11 @@
 
 # Django
 from django.db import models
+# utilities
+from utils.models import ProduModel
 
 
-class LivestockLlamaCycle(models.Model):
+class LivestockLlamaCycle(ProduModel):
     """ Ciclo de llamas 
     de la produccion Ganadera """
     

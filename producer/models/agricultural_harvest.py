@@ -1,9 +1,11 @@
 """ Production Agricultural Harvest """
 # Django
 from django.db import models
+# utilities
+from utils.models import ProduModel
 
 
-class AgriculturalHarvest(models.Model):
+class AgriculturalHarvest(ProduModel):
     """ Modelo de datos relacionado 
     con las cosecha de la producion """
 

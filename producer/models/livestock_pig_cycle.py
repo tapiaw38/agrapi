@@ -2,8 +2,10 @@
 
 # Django
 from django.db import models
+# utilities
+from utils.models import ProduModel
 
-class LivestockPigCycle(models.Model):
+class LivestockPigCycle(ProduModel):
     """ Ciclo de cerdos relacionado 
     con la actividad productiva """
     

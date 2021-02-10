@@ -2,9 +2,11 @@
 
 # Django
 from django.db import models
+# utilities
+from utils.models import ProduModel
 
 
-class LivestockMarketing(models.Model):
+class LivestockMarketing(ProduModel):
     """ Modelo de comercializacion 
     de lana y pelo de actividad ganadera """
 
