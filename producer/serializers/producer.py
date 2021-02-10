@@ -108,6 +108,8 @@ class LivestockAquacultureCycleSerializer(serializers.ModelSerializer):
         model = LivestockAquacultureCycle
         fields = (
             'id',
+            'created',
+            'modified',
             'orientation',
             'existence',
         )
@@ -117,6 +119,8 @@ class LivestockBeekeepingCycleSerializer(serializers.ModelSerializer):
         model = LivestockBeekeepingCycle
         fields = (
             'id',
+            'created',
+            'modified',
             'renapa',
             'kind_bee',
             'has_bee_hives',
@@ -132,6 +136,8 @@ class LivestockRabbitCycleSerializer(serializers.ModelSerializer):
         model = LivestockRabbitCycle
         fields = (
             'id',
+            'created',
+            'modified',
             'orientation',
             'number_breeding_males',
             'number_breeding_females',
@@ -143,6 +149,8 @@ class LivestockPoultryCycleSerializer(serializers.ModelSerializer):
         model = LivestockPoultryCycle
         fields = (
             'id',
+            'created',
+            'modified',
             'is_intensive_poultry',
             'has_hatchery',
             'number_incubators',
@@ -160,6 +168,8 @@ class LivestockLlamaCycleSerializer(serializers.ModelSerializer):
         model = LivestockLlamaCycle
         fields = (
             'id',
+            'created',
+            'modified',
             'number_tekes',
             'number_tekes_weaned',
             'number_maltones',
@@ -174,6 +184,8 @@ class LivestockPigCycleSerializer(serializers.ModelSerializer):
         model = LivestockPigCycle
         fields = (
             'id',
+            'created',
+            'modified',
             'up_three_months',
             'three_eight_months',
             'males_older_eight_months',
@@ -187,6 +199,8 @@ class LivestockGoatCycleSerializer(serializers.ModelSerializer):
         model = LivestockGoatCycle
         fields = (
             'id',
+            'created',
+            'modified',
             'goats_under_six_months',
             'goats_six_months_to_first_calving',
             'number_goats',
@@ -199,6 +213,8 @@ class LivestockSheepCycleSerializer(serializers.ModelSerializer):
         model = LivestockSheepCycle
         fields = (
             'id',
+            'created',
+            'modified',
             'sheep_under_six_months',
             'sheep_older_six_months_to_calving',
             'sheep_older_six_months_one_year',
@@ -212,6 +228,8 @@ class LivestockBovineCycleSerializer(serializers.ModelSerializer):
         model = LivestockBovineCycle
         fields = (
             'id',
+            'created',
+            'modified',
             'calves_under_one_year',
             'heifers_one_to_two_years',
             'heifers_over_two_years',
@@ -259,6 +277,8 @@ class LivestockMarketingSerializer(WritableNestedModelSerializer):
         model = LivestockMarketing
         fields = (
             'id',
+            'created',
+            'modified',
             'number_slaughtered',
             'slaughter_destination',
             'amount_leather',
@@ -378,6 +398,8 @@ class AgriculturalHarvestSerializer(WritableNestedModelSerializer):
         model = AgriculturalHarvest
         fields = (
             'id',
+            'created',
+            'modified',
             'harvest_surface',
             'tons_production',
             'harvest_time',

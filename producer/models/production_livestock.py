@@ -27,4 +27,4 @@ class ProductionLivestock(models.Model):
     suggestion = models.CharField(max_length=200, blank=True, null=True)
 
     def __str__(self):
-        return 'Producción Ganadera: {}'.format(self.production.producer)
+        return 'Producción Ganadera: {}'.format(self.production)
