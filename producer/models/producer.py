@@ -39,15 +39,5 @@ class Producer(ProduModel):
     another_phone_number = models.CharField(
         validators=[phone_regex], max_length=10, blank=True, null=True)
 
-    email = models.EmailField(
-        'email addres',
-        unique=True,
-        error_messages={
-            'unique': 'There is already a user with this email.',
-        },
-        blank=True,
-        null=True,
-    )
-
     def __str__(self):
         return '{} {}'.format(self.last_name, self.first_name)
