@@ -44,7 +44,9 @@ class Producer(ProduModel):
         unique=True,
         error_messages={
             'unique': 'There is already a user with this email.',
-        }
+        },
+        blank=True,
+        null=True,
     )
 
     def __str__(self):
