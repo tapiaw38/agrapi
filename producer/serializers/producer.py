@@ -8,7 +8,7 @@ from drf_writable_nested.serializers import WritableNestedModelSerializer
 # Import Models Producer
 from producer.models import (
     Pollster,
-    Producer, 
+    Producer,
     ProducerPerson,
     ProducerHome,
     ProducerVehicle,
@@ -52,6 +52,8 @@ from producer.models import (
 )
 
 # Serializers Production Agro-industrial
+
+
 class AgroindustrialHandmandeProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = AgroindustrialHandmandeProduct
@@ -60,6 +62,7 @@ class AgroindustrialHandmandeProductSerializer(serializers.ModelSerializer):
             'quantity',
             'price',
         )
+
 
 class AgroindustrialFoodProductSerializer(serializers.ModelSerializer):
     class Meta:
@@ -73,20 +76,26 @@ class AgroindustrialFoodProductSerializer(serializers.ModelSerializer):
             'price',
         )
 
+
 class AgroindustrialToolsSerializer(serializers.ModelSerializer):
     class Meta:
         model = AgroindustrialTools
         fields = (
             'id',
             'name_tool',
-            'type_tool', 
-            'number_tools', 
+            'type_tool',
+            'number_tools',
         )
 
+
 class ProductionAgroindustrialSerializer(WritableNestedModelSerializer):
-    agroindustrial_tools = AgroindustrialToolsSerializer(many=True, allow_null=True)
-    agroindustrial_food_product = AgroindustrialFoodProductSerializer(many=True, allow_null=True)
-    agroindustrial_handmande_product = AgroindustrialHandmandeProductSerializer(many=True, allow_null=True)
+    agroindustrial_tools = AgroindustrialToolsSerializer(
+        many=True, allow_null=True)
+    agroindustrial_food_product = AgroindustrialFoodProductSerializer(
+        many=True, allow_null=True)
+    agroindustrial_handmande_product = AgroindustrialHandmandeProductSerializer(
+        many=True, allow_null=True)
+
     class Meta:
         model = ProductionAgroindustrial
         fields = (
@@ -114,6 +123,7 @@ class LivestockAquacultureCycleSerializer(serializers.ModelSerializer):
             'existence',
         )
 
+
 class LivestockBeekeepingCycleSerializer(serializers.ModelSerializer):
     class Meta:
         model = LivestockBeekeepingCycle
@@ -131,6 +141,7 @@ class LivestockBeekeepingCycleSerializer(serializers.ModelSerializer):
             'pollinated_flower',
         )
 
+
 class LivestockRabbitCycleSerializer(serializers.ModelSerializer):
     class Meta:
         model = LivestockRabbitCycle
@@ -143,6 +154,7 @@ class LivestockRabbitCycleSerializer(serializers.ModelSerializer):
             'number_breeding_females',
             'number_rabbit',
         )
+
 
 class LivestockPoultryCycleSerializer(serializers.ModelSerializer):
     class Meta:
@@ -163,6 +175,7 @@ class LivestockPoultryCycleSerializer(serializers.ModelSerializer):
             'number_breeding_males',
         )
 
+
 class LivestockLlamaCycleSerializer(serializers.ModelSerializer):
     class Meta:
         model = LivestockLlamaCycle
@@ -179,6 +192,7 @@ class LivestockLlamaCycleSerializer(serializers.ModelSerializer):
             'number_capons',
         )
 
+
 class LivestockPigCycleSerializer(serializers.ModelSerializer):
     class Meta:
         model = LivestockPigCycle
@@ -194,6 +208,7 @@ class LivestockPigCycleSerializer(serializers.ModelSerializer):
             'number_stallions',
         )
 
+
 class LivestockGoatCycleSerializer(serializers.ModelSerializer):
     class Meta:
         model = LivestockGoatCycle
@@ -207,6 +222,7 @@ class LivestockGoatCycleSerializer(serializers.ModelSerializer):
             'number_capons',
             'number_stallions',
         )
+
 
 class LivestockSheepCycleSerializer(serializers.ModelSerializer):
     class Meta:
@@ -222,6 +238,7 @@ class LivestockSheepCycleSerializer(serializers.ModelSerializer):
             'number_capons',
             'number_rams',
         )
+
 
 class LivestockBovineCycleSerializer(serializers.ModelSerializer):
     class Meta:
@@ -241,38 +258,42 @@ class LivestockBovineCycleSerializer(serializers.ModelSerializer):
             'number_oxen_torunos',
         )
 
+
 class LivestockAnimalPensSerializer(serializers.ModelSerializer):
     class Meta:
         model = LivestockAnimalPens
         fields = (
-                'id',
-                'orientation',
-                'building_material',
-                'roof_material',
-                'foor_material',
-                'surface',
-                'num_animals',
-                'lat',
-                'lng',
+            'id',
+            'orientation',
+            'building_material',
+            'roof_material',
+            'foor_material',
+            'surface',
+            'num_animals',
+            'lat',
+            'lng',
         )
+
 
 class LivestockSalesChannelSerializer(serializers.ModelSerializer):
     class Meta:
         model = LivestockSalesChannel
         fields = (
-          'id',
-          'is_collector',
-          'is_cooperative',
-          'is_exporter',
-          'use_baler',
-          'use_fair',
-          'use_industry',
-          'use_fridge',
-          'make_direct_sale',
+            'id',
+            'is_collector',
+            'is_cooperative',
+            'is_exporter',
+            'use_baler',
+            'use_fair',
+            'use_industry',
+            'use_fridge',
+            'make_direct_sale',
         )
+
 
 class LivestockMarketingSerializer(WritableNestedModelSerializer):
     livestock_sales_channel = LivestockSalesChannelSerializer(allow_null=True)
+
     class Meta:
         model = LivestockMarketing
         fields = (
@@ -297,6 +318,7 @@ class LivestockMarketingSerializer(WritableNestedModelSerializer):
             'livestock_sales_channel',
         )
 
+
 class LivestockHealthSerializer(serializers.ModelSerializer):
     class Meta:
         model = LivestockHealth
@@ -314,6 +336,7 @@ class LivestockHealthSerializer(serializers.ModelSerializer):
             'other_practices',
         )
 
+
 class LivestockReproductionSerializer(serializers.ModelSerializer):
     class Meta:
         model = LivestockReproduction
@@ -324,6 +347,8 @@ class LivestockReproductionSerializer(serializers.ModelSerializer):
             'make_continuous_service',
             'other_practices',
         )
+
+
 class LivestockAnimalFeddingSerializer(serializers.ModelSerializer):
     class Meta:
         model = LivestockAnimalFeeding
@@ -335,21 +360,35 @@ class LivestockAnimalFeddingSerializer(serializers.ModelSerializer):
             'description',
         )
 
+
 class ProductionLivestockSerializer(WritableNestedModelSerializer):
-    livestock_animal_feeding = LivestockAnimalFeddingSerializer(many=True, allow_null=True)
+    livestock_animal_feeding = LivestockAnimalFeddingSerializer(
+        many=True, allow_null=True)
     livestock_reproduction = LivestockReproductionSerializer(allow_null=True)
     livestock_health = LivestockHealthSerializer(allow_null=True)
-    livestock_animal_pens = LivestockAnimalPensSerializer(many=True, allow_null=True)
-    livestock_marketing = LivestockMarketingSerializer(many=True, allow_null=True)
-    livestock_bovine_cycle = LivestockBovineCycleSerializer(many=True, allow_null=True)
-    livestock_sheep_cycle = LivestockSheepCycleSerializer(many=True, allow_null=True)
-    livestock_goat_cycle = LivestockGoatCycleSerializer(many=True, allow_null=True)
-    livestock_pig_cycle = LivestockPigCycleSerializer(many=True, allow_null=True)
-    livestock_llama_cycle = LivestockLlamaCycleSerializer(many=True, allow_null=True)
-    livestock_poultry_cycle = LivestockPoultryCycleSerializer(many=True, allow_null=True)
-    livestock_rabbit_cycle = LivestockRabbitCycleSerializer(many=True, allow_null=True)
-    livestock_beekeeping_cycle = LivestockBeekeepingCycleSerializer(many=True, allow_null=True)
-    livestock_aquaculture_cycle = LivestockAquacultureCycleSerializer(many=True, allow_null=True)
+    livestock_animal_pens = LivestockAnimalPensSerializer(
+        many=True, allow_null=True)
+    livestock_marketing = LivestockMarketingSerializer(
+        many=True, allow_null=True)
+    livestock_bovine_cycle = LivestockBovineCycleSerializer(
+        many=True, allow_null=True)
+    livestock_sheep_cycle = LivestockSheepCycleSerializer(
+        many=True, allow_null=True)
+    livestock_goat_cycle = LivestockGoatCycleSerializer(
+        many=True, allow_null=True)
+    livestock_pig_cycle = LivestockPigCycleSerializer(
+        many=True, allow_null=True)
+    livestock_llama_cycle = LivestockLlamaCycleSerializer(
+        many=True, allow_null=True)
+    livestock_poultry_cycle = LivestockPoultryCycleSerializer(
+        many=True, allow_null=True)
+    livestock_rabbit_cycle = LivestockRabbitCycleSerializer(
+        many=True, allow_null=True)
+    livestock_beekeeping_cycle = LivestockBeekeepingCycleSerializer(
+        many=True, allow_null=True)
+    livestock_aquaculture_cycle = LivestockAquacultureCycleSerializer(
+        many=True, allow_null=True)
+
     class Meta:
         model = ProductionLivestock
         fields = (
@@ -377,23 +416,28 @@ class ProductionLivestockSerializer(WritableNestedModelSerializer):
         )
 
 # Serializers Production Agricultural
+
+
 class AgriculturalSalesChannelSerializer(serializers.ModelSerializer):
     class Meta:
         model = AgriculturalSalesChannel
         fields = (
-          'id',
-          'is_collector',
-          'is_cooperative',
-          'is_exporter',
-          'use_baler',
-          'use_fair',
-          'use_industry',
-          'use_fridge',
-          'make_direct_sale',
+            'id',
+            'is_collector',
+            'is_cooperative',
+            'is_exporter',
+            'use_baler',
+            'use_fair',
+            'use_industry',
+            'use_fridge',
+            'make_direct_sale',
         )
 
+
 class AgriculturalHarvestSerializer(WritableNestedModelSerializer):
-    agricultural_sales_channel = AgriculturalSalesChannelSerializer(allow_null=True)
+    agricultural_sales_channel = AgriculturalSalesChannelSerializer(
+        allow_null=True)
+
     class Meta:
         model = AgriculturalHarvest
         fields = (
@@ -405,6 +449,7 @@ class AgriculturalHarvestSerializer(WritableNestedModelSerializer):
             'harvest_time',
             'agricultural_sales_channel',
         )
+
 
 class AgriculturalPestSerializer(serializers.ModelSerializer):
     class Meta:
@@ -420,6 +465,7 @@ class AgriculturalPestSerializer(serializers.ModelSerializer):
             'other_practices',
         )
 
+
 class AgriculturalClimaticSerializer(serializers.ModelSerializer):
     class Meta:
         model = AgriculturalClimatic
@@ -429,6 +475,7 @@ class AgriculturalClimaticSerializer(serializers.ModelSerializer):
             'risk',
             'description',
         )
+
 
 class AgriculturalAttendanceSerializer(serializers.ModelSerializer):
     class Meta:
@@ -441,13 +488,17 @@ class AgriculturalAttendanceSerializer(serializers.ModelSerializer):
             'use_hail_mesh',
             'make_frost_control',
             'other_practices',
-            )
+        )
+
 
 class ProductionAgriculturalSerializer(WritableNestedModelSerializer):
     agricultural_attendance = AgriculturalAttendanceSerializer(allow_null=True)
-    agricultural_climatic =  AgriculturalClimaticSerializer(allow_null=True, many=True)
-    agricultural_pests =  AgriculturalPestSerializer(allow_null=True, many=True)
-    agricultural_harvest = AgriculturalHarvestSerializer(allow_null=True, many=True)
+    agricultural_climatic = AgriculturalClimaticSerializer(
+        allow_null=True, many=True)
+    agricultural_pests = AgriculturalPestSerializer(allow_null=True, many=True)
+    agricultural_harvest = AgriculturalHarvestSerializer(
+        allow_null=True, many=True)
+
     class Meta:
         model = ProductionAgricultural
         fields = (
@@ -468,6 +519,8 @@ class ProductionAgriculturalSerializer(WritableNestedModelSerializer):
         )
 
 # Serializer related Production
+
+
 class InstallationBarnSerializer(serializers.ModelSerializer):
     class Meta:
         model = InstallationBarn
@@ -477,6 +530,7 @@ class InstallationBarnSerializer(serializers.ModelSerializer):
             'lat',
             'lng',
         )
+
 
 class InstallationWellSerializer(serializers.ModelSerializer):
     class Meta:
@@ -488,9 +542,11 @@ class InstallationWellSerializer(serializers.ModelSerializer):
             'lng',
         )
 
+
 class ProductionInstallationSerializer(WritableNestedModelSerializer):
     installation_barn = InstallationBarnSerializer(many=True, allow_null=True)
     installation_well = InstallationWellSerializer(many=True, allow_null=True)
+
     class Meta:
         model = ProductionInstallation
         fields = (
@@ -505,6 +561,8 @@ class ProductionInstallationSerializer(WritableNestedModelSerializer):
             "installation_barn",
             "installation_well",
         )
+
+
 class ProductionIrrigationSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProductionIrrigation
@@ -517,8 +575,9 @@ class ProductionIrrigationSerializer(serializers.ModelSerializer):
             'watering_hours',
             'channel_conditions',
             'right',
-            'shifts',  
-        ) 
+            'shifts',
+        )
+
 
 class ProductionPropertySerializer(serializers.ModelSerializer):
     class Meta:
@@ -531,11 +590,12 @@ class ProductionPropertySerializer(serializers.ModelSerializer):
             'starting_number',
         )
 
+
 class ProductionMachineSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProductionMachine
         fields = (
-	        'id',
+            'id',
             'destination',
             'name_machine',
             'type_maquinary',
@@ -544,6 +604,7 @@ class ProductionMachineSerializer(serializers.ModelSerializer):
             'age',
             'observation',
         )
+
 
 class ProductionServiceSerializer(serializers.ModelSerializer):
     class Meta:
@@ -560,20 +621,26 @@ class ProductionServiceSerializer(serializers.ModelSerializer):
             'has_solar_panels',
         )
 
+
 class ProductionSerializer(WritableNestedModelSerializer):
     production_property = ProductionPropertySerializer(allow_null=True)
     production_service = ProductionServiceSerializer(allow_null=True)
     production_installation = ProductionInstallationSerializer(allow_null=True)
-    production_machine = ProductionMachineSerializer(many=True, allow_null=True)
+    production_machine = ProductionMachineSerializer(
+        many=True, allow_null=True)
     production_irrigation = ProductionIrrigationSerializer(allow_null=True)
-    production_agricultural = ProductionAgriculturalSerializer(many=True, allow_null=True)
-    production_livestock = ProductionLivestockSerializer(many=True, allow_null=True)
-    production_agroindustrial = ProductionAgroindustrialSerializer(many=True, allow_null=True)
+    production_agricultural = ProductionAgriculturalSerializer(
+        many=True, allow_null=True)
+    production_livestock = ProductionLivestockSerializer(
+        many=True, allow_null=True)
+    production_agroindustrial = ProductionAgroindustrialSerializer(
+        many=True, allow_null=True)
+
     class Meta:
         model = Production
         fields = (
             'id',
-            'is_resident', 
+            'is_resident',
             'district',
             'surface',
             'road_state',
@@ -592,6 +659,8 @@ class ProductionSerializer(WritableNestedModelSerializer):
         )
 
 # Serializers related at Producer
+
+
 class WorkerSerializer(serializers.ModelSerializer):
     class Meta:
         model = ActivityWorker
@@ -606,8 +675,10 @@ class WorkerSerializer(serializers.ModelSerializer):
             'type_job',
         )
 
+
 class ActivitySerializer(WritableNestedModelSerializer):
     activity_worker = WorkerSerializer(many=True)
+
     class Meta:
         model = ProducerActivity
         fields = (
@@ -619,6 +690,7 @@ class ActivitySerializer(WritableNestedModelSerializer):
             'activity_worker',
         )
 
+
 class VehicleSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProducerVehicle
@@ -629,6 +701,7 @@ class VehicleSerializer(serializers.ModelSerializer):
             'type_trailer',
             'use_semitrailer',
         )
+
 
 class PersonSerializer(serializers.ModelSerializer):
     class Meta:
@@ -647,6 +720,7 @@ class PersonSerializer(serializers.ModelSerializer):
             'description',
         )
 
+
 class HomeSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProducerHome
@@ -658,6 +732,7 @@ class HomeSerializer(serializers.ModelSerializer):
             'state_recidence',
         )
 
+
 class ProducerSerializer(WritableNestedModelSerializer):
     producer_home = HomeSerializer(allow_null=True)
     producer_activity = ActivitySerializer(allow_null=True)
@@ -665,7 +740,6 @@ class ProducerSerializer(WritableNestedModelSerializer):
     producer_vehicle = VehicleSerializer(many=True, allow_null=True)
     # Production
     production = ProductionSerializer(many=True, allow_null=True)
-
 
     class Meta:
         model = Producer
@@ -677,6 +751,8 @@ class ProducerSerializer(WritableNestedModelSerializer):
             'document',
             'gender',
             'phone_number',
+            'another_phone_number',
+            'enail',
             'producer_home',
             'producer_person',
             'producer_vehicle',
@@ -684,9 +760,11 @@ class ProducerSerializer(WritableNestedModelSerializer):
             'production',
         )
 
+
 class PollsterSerializer(WritableNestedModelSerializer):
     producer = ProducerSerializer(allow_null=True)
     user = serializers.StringRelatedField()
+
     class Meta:
         model = Pollster
         fields = (
@@ -701,179 +779,243 @@ class PollsterSerializer(WritableNestedModelSerializer):
             'created',
         ]
 
+    def create(self, validated_data):
+        """ Method create relations serializer 
+        of producers & production. """
 
-    def create(self,validated_data):
-            """ Method create relations serializer 
-            of producers & production. """
+        # Add user & profile at pollster
+        user = self.context['request'].user
+        profile = user.profile
+        profile.polls += 1
+        profile.save()
 
-            # Add user & profile at pollster
-            user =  self.context['request'].user
-            profile = user.profile
-            profile.polls += 1
-            profile.save()
+        # Create relation of serializers
+        producer_data = validated_data.pop('producer')
 
-            # Create relation of serializers
-            producer_data = validated_data.pop('producer')
+        pollster = Pollster.objects.create(
+            user=user,
+            profile=profile
+        )
+        # Remove data from list
 
-            pollster = Pollster.objects.create(
-                user=user,
-                profile=profile
-            )
-            # Remove data from list 
+        # Producer
+        home_data = producer_data.pop('producer_home')
+        person_data = producer_data.pop('producer_person')
+        vehicle_data = producer_data.pop('producer_vehicle')
+        activity_data = producer_data.pop('producer_activity')
 
-            # Producer
-            home_data = producer_data.pop('producer_home')
-            person_data = producer_data.pop('producer_person')
-            vehicle_data = producer_data.pop('producer_vehicle')
-            activity_data = producer_data.pop('producer_activity')
+        # Sub data Producer
+        worker_data = activity_data.pop('activity_worker')
 
-            # Sub data Producer
-            worker_data = activity_data.pop('activity_worker')
-            
-            # Production
-            production_data = producer_data.pop('production')
+        # Production
+        production_data = producer_data.pop('production')
 
-            # Created objects
-            producer = Producer.objects.create(pollster=pollster, **producer_data)
-            
-            # Sub created objects producer
-            activity =  ProducerActivity.objects.create(producer=producer, **activity_data)
+        # Created objects
+        producer = Producer.objects.create(pollster=pollster, **producer_data)
 
-        
-            # Relation OneToOne
-            ProducerHome.objects.create(producer=producer, **home_data)
+        # Sub created objects producer
+        activity = ProducerActivity.objects.create(
+            producer=producer, **activity_data)
 
-            # Relation Foreinkey
-            for person_data in person_data:
-                ProducerPerson.objects.create(producer=producer, **person_data)
+        # Relation OneToOne
+        ProducerHome.objects.create(producer=producer, **home_data)
 
-            for vehicle_data in vehicle_data:
-                ProducerVehicle.objects.create(producer=producer, **vehicle_data)
+        # Relation Foreinkey
+        for person_data in person_data:
+            ProducerPerson.objects.create(producer=producer, **person_data)
 
-            # Sub relation activity
-            for worker_data in worker_data:
-                ActivityWorker.objects.create(activity=activity, **worker_data)
-            
-            # Production
-            for production_data in production_data:
-                # remove on list production
-                production_property_data = production_data.pop('production_property')
-                production_service_data = production_data.pop('production_service')
-                production_installation_data = production_data.pop('production_installation')
-                production_machine_data = production_data.pop('production_machine')
-                production_irrigation_data = production_data.pop('production_irrigation')
-                production_agricultural_data = production_data.pop('production_agricultural')
-                production_livestock_data = production_data.pop('production_livestock')
-                production_agroindustrial_data = production_data.pop('production_agroindustrial')
-                
-                # Create object production
-                production = Production.objects.create(producer=producer, **production_data)
+        for vehicle_data in vehicle_data:
+            ProducerVehicle.objects.create(producer=producer, **vehicle_data)
 
-                # sub create objects production
-                ProductionProperty.objects.create(production=production, **production_property_data)
-                ProductionService.objects.create(production=production, **production_service_data)
-                ProductionIrrigation.objects.create(production=production, **production_irrigation_data)
+        # Sub relation activity
+        for worker_data in worker_data:
+            ActivityWorker.objects.create(activity=activity, **worker_data)
 
-                for production_machine_data in production_machine_data:
-                    ProductionMachine.objects.create(production=production, **production_machine_data)
-                
-                # sub create installations
+        # Production
+        for production_data in production_data:
+            # remove on list production
+            production_property_data = production_data.pop(
+                'production_property')
+            production_service_data = production_data.pop('production_service')
+            production_installation_data = production_data.pop(
+                'production_installation')
+            production_machine_data = production_data.pop('production_machine')
+            production_irrigation_data = production_data.pop(
+                'production_irrigation')
+            production_agricultural_data = production_data.pop(
+                'production_agricultural')
+            production_livestock_data = production_data.pop(
+                'production_livestock')
+            production_agroindustrial_data = production_data.pop(
+                'production_agroindustrial')
 
-                installation_barn_data = production_installation_data.pop('installation_barn')
-                installation_well_data = production_installation_data.pop('installation_well')
+            # Create object production
+            production = Production.objects.create(
+                producer=producer, **production_data)
 
-                installation = ProductionInstallation.objects.create(production=production, **production_installation_data)
+            # sub create objects production
+            ProductionProperty.objects.create(
+                production=production, **production_property_data)
+            ProductionService.objects.create(
+                production=production, **production_service_data)
+            ProductionIrrigation.objects.create(
+                production=production, **production_irrigation_data)
 
-                for installation_barn_data in installation_barn_data:
-                    InstallationBarn.objects.create(installation=installation, **installation_barn_data)
-                for installation_well_data in installation_well_data:
-                    InstallationWell.objects.create(installation=installation, **installation_well_data)
-                
-                # Production Agricultural
-                for production_agricultural_data in production_agricultural_data:
-                    agricultural_attendance_data = production_agricultural_data.pop('agricultural_attendance')
-                    agricultural_climatic_data = production_agricultural_data.pop('agricultural_climatic')
-                    agricultural_pests_data = production_agricultural_data.pop('agricultural_pests')
-                    agricultural_harvest_data = production_agricultural_data.pop('agricultural_harvest')
+            for production_machine_data in production_machine_data:
+                ProductionMachine.objects.create(
+                    production=production, **production_machine_data)
 
-                    production_agricultural = ProductionAgricultural.objects.create(production=production, **production_agricultural_data)
+            # sub create installations
 
-                    AgriculturalAttendance.objects.create(production_agricultural=production_agricultural, **agricultural_attendance_data)
-                    for agricultural_climatic_data in agricultural_climatic_data:
-                        AgriculturalClimatic.objects.create(production_agricultural=production_agricultural, **agricultural_climatic_data)
-                    for agricultural_pests_data in agricultural_pests_data:
-                        AgriculturalPests.objects.create(production_agricultural=production_agricultural, **agricultural_pests_data)
-                    
-                    for agricultural_harvest_data in agricultural_harvest_data:
-                        agricultural_sales_channel_data = agricultural_harvest_data.pop('agricultural_sales_channel')
-                        agricultural_harvest = AgriculturalHarvest.objects.create(production_agricultural=production_agricultural, **agricultural_harvest_data)
-                        AgriculturalSalesChannel.objects.create(agricultural_harvest=agricultural_harvest, **agricultural_sales_channel_data)
-            
-                # Production Livestock
-                for production_livestock_data in production_livestock_data:
-                    livestock_animal_feeding_data = production_livestock_data.pop('livestock_animal_feeding')
-                    livestock_reproduction_data = production_livestock_data.pop('livestock_reproduction')
-                    livestock_animal_pens_data = production_livestock_data.pop('livestock_animal_pens')
-                    livestock_health_data = production_livestock_data.pop('livestock_health')
-                    livestock_marketing_data = production_livestock_data.pop('livestock_marketing')
-                    livestock_bovine_cycle_data = production_livestock_data.pop('livestock_bovine_cycle')
-                    livestock_sheep_cycle_data = production_livestock_data.pop('livestock_sheep_cycle')
-                    livestock_goat_cycle_data = production_livestock_data.pop('livestock_goat_cycle')
-                    livestock_pig_cycle_data = production_livestock_data.pop('livestock_pig_cycle')
-                    livestock_llama_cycle_data = production_livestock_data.pop('livestock_llama_cycle')
-                    livestock_poultry_cycle_data = production_livestock_data.pop('livestock_poultry_cycle')
-                    livestock_rabbit_cycle_data = production_livestock_data.pop('livestock_rabbit_cycle')
-                    livestock_beekeeping_cycle_data = production_livestock_data.pop('livestock_beekeeping_cycle')
-                    livestock_aquaculture_cycle_data = production_livestock_data.pop('livestock_aquaculture_cycle')
+            installation_barn_data = production_installation_data.pop(
+                'installation_barn')
+            installation_well_data = production_installation_data.pop(
+                'installation_well')
 
-                    production_livestock = ProductionLivestock.objects.create(production=production, **production_livestock_data)
-                    
-                    for livestock_animal_feeding_data in livestock_animal_feeding_data:
-                        LivestockAnimalFeeding.objects.create(production_livestock=production_livestock, **livestock_animal_feeding_data)
-                    LivestockReproduction.objects.create(production_livestock=production_livestock, **livestock_reproduction_data)
+            installation = ProductionInstallation.objects.create(
+                production=production, **production_installation_data)
 
-                    LivestockHealth.objects.create(production_livestock=production_livestock, **livestock_health_data)
-                    
-                    for livestock_marketing_data in livestock_marketing_data:
-                        livestock_sales_channel_data = livestock_marketing_data.pop('livestock_sales_channel')
-                        livestock_marketing = LivestockMarketing.objects.create(production_livestock=production_livestock, **livestock_marketing_data)
-                        LivestockSalesChannel.objects.create(livestock_marketing=livestock_marketing, **livestock_sales_channel_data)
+            for installation_barn_data in installation_barn_data:
+                InstallationBarn.objects.create(
+                    installation=installation, **installation_barn_data)
+            for installation_well_data in installation_well_data:
+                InstallationWell.objects.create(
+                    installation=installation, **installation_well_data)
 
-                    for livestock_bovine_cycle_data in livestock_bovine_cycle_data:
-                        LivestockBovineCycle.objects.create(production_livestock=production_livestock, **livestock_bovine_cycle_data)
-                    for livestock_sheep_cycle_data in livestock_sheep_cycle_data:
-                        LivestockSheepCycle.objects.create(production_livestock=production_livestock, **livestock_sheep_cycle_data)
-                    for livestock_goat_cycle_data in livestock_goat_cycle_data:
-                        LivestockGoatCycle.objects.create(production_livestock=production_livestock, **livestock_goat_cycle_data)
-                    for livestock_pig_cycle_data in livestock_pig_cycle_data:
-                        LivestockPigCycle.objects.create(production_livestock=production_livestock, **livestock_pig_cycle_data)
-                    for livestock_llama_cycle_data in livestock_llama_cycle_data:
-                        LivestockLlamaCycle.objects.create(production_livestock=production_livestock, **livestock_llama_cycle_data)
-                    for livestock_poultry_cycle_data in livestock_poultry_cycle_data:
-                        LivestockPoultryCycle.objects.create(production_livestock=production_livestock, **livestock_poultry_cycle_data)
-                    for livestock_rabbit_cycle_data in livestock_rabbit_cycle_data:
-                        LivestockRabbitCycle.objects.create(production_livestock=production_livestock, **livestock_rabbit_cycle_data)
-                    for livestock_beekeeping_cycle_data in livestock_beekeeping_cycle_data:
-                        LivestockBeekeepingCycle.objects.create(production_livestock=production_livestock, **livestock_beekeeping_cycle_data)
-                    for livestock_aquaculture_cycle_data in livestock_aquaculture_cycle_data:
-                        LivestockAquacultureCycle.objects.create(production_livestock=production_livestock, **livestock_aquaculture_cycle_data)
-                    for livestock_animal_pens_data in livestock_animal_pens_data:
-                        LivestockAnimalPens.objects.create(production_livestock=production_livestock, **livestock_animal_pens_data)
+            # Production Agricultural
+            for production_agricultural_data in production_agricultural_data:
+                agricultural_attendance_data = production_agricultural_data.pop(
+                    'agricultural_attendance')
+                agricultural_climatic_data = production_agricultural_data.pop(
+                    'agricultural_climatic')
+                agricultural_pests_data = production_agricultural_data.pop(
+                    'agricultural_pests')
+                agricultural_harvest_data = production_agricultural_data.pop(
+                    'agricultural_harvest')
 
-                for production_agroindustrial_data in production_agroindustrial_data:
-                    agroindustrial_tools_data = production_agroindustrial_data.pop('agroindustrial_tools')
-                    agroindustrial_food_product_data = production_agroindustrial_data.pop('agroindustrial_food_product')
-                    agroindustrial_handmande_product_data = production_agroindustrial_data.pop('agroindustrial_handmande_product')
+                production_agricultural = ProductionAgricultural.objects.create(
+                    production=production, **production_agricultural_data)
 
-                    production_agroindustrial = ProductionAgroindustrial.objects.create(production=production, **production_agroindustrial_data)
+                AgriculturalAttendance.objects.create(
+                    production_agricultural=production_agricultural, **agricultural_attendance_data)
+                for agricultural_climatic_data in agricultural_climatic_data:
+                    AgriculturalClimatic.objects.create(
+                        production_agricultural=production_agricultural, **agricultural_climatic_data)
+                for agricultural_pests_data in agricultural_pests_data:
+                    AgriculturalPests.objects.create(
+                        production_agricultural=production_agricultural, **agricultural_pests_data)
 
-                    for agroindustrial_tools_data in agroindustrial_tools_data:
-                        AgroindustrialTools.objects.create(production_agroindustrial=production_agroindustrial, **agroindustrial_tools_data)
+                for agricultural_harvest_data in agricultural_harvest_data:
+                    agricultural_sales_channel_data = agricultural_harvest_data.pop(
+                        'agricultural_sales_channel')
+                    agricultural_harvest = AgriculturalHarvest.objects.create(
+                        production_agricultural=production_agricultural, **agricultural_harvest_data)
+                    AgriculturalSalesChannel.objects.create(
+                        agricultural_harvest=agricultural_harvest, **agricultural_sales_channel_data)
 
-                    for agroindustrial_food_product_data in agroindustrial_food_product_data:
-                        AgroindustrialFoodProduct.objects.create(production_agroindustrial=production_agroindustrial, **agroindustrial_food_product_data)
+            # Production Livestock
+            for production_livestock_data in production_livestock_data:
+                livestock_animal_feeding_data = production_livestock_data.pop(
+                    'livestock_animal_feeding')
+                livestock_reproduction_data = production_livestock_data.pop(
+                    'livestock_reproduction')
+                livestock_animal_pens_data = production_livestock_data.pop(
+                    'livestock_animal_pens')
+                livestock_health_data = production_livestock_data.pop(
+                    'livestock_health')
+                livestock_marketing_data = production_livestock_data.pop(
+                    'livestock_marketing')
+                livestock_bovine_cycle_data = production_livestock_data.pop(
+                    'livestock_bovine_cycle')
+                livestock_sheep_cycle_data = production_livestock_data.pop(
+                    'livestock_sheep_cycle')
+                livestock_goat_cycle_data = production_livestock_data.pop(
+                    'livestock_goat_cycle')
+                livestock_pig_cycle_data = production_livestock_data.pop(
+                    'livestock_pig_cycle')
+                livestock_llama_cycle_data = production_livestock_data.pop(
+                    'livestock_llama_cycle')
+                livestock_poultry_cycle_data = production_livestock_data.pop(
+                    'livestock_poultry_cycle')
+                livestock_rabbit_cycle_data = production_livestock_data.pop(
+                    'livestock_rabbit_cycle')
+                livestock_beekeeping_cycle_data = production_livestock_data.pop(
+                    'livestock_beekeeping_cycle')
+                livestock_aquaculture_cycle_data = production_livestock_data.pop(
+                    'livestock_aquaculture_cycle')
 
-                    for agroindustrial_handmande_product_data in agroindustrial_handmande_product_data:
-                        AgroindustrialHandmandeProduct.objects.create(production_agroindustrial=production_agroindustrial, **agroindustrial_handmande_product_data)
+                production_livestock = ProductionLivestock.objects.create(
+                    production=production, **production_livestock_data)
 
-            return pollster
+                for livestock_animal_feeding_data in livestock_animal_feeding_data:
+                    LivestockAnimalFeeding.objects.create(
+                        production_livestock=production_livestock, **livestock_animal_feeding_data)
+                LivestockReproduction.objects.create(
+                    production_livestock=production_livestock, **livestock_reproduction_data)
+
+                LivestockHealth.objects.create(
+                    production_livestock=production_livestock, **livestock_health_data)
+
+                for livestock_marketing_data in livestock_marketing_data:
+                    livestock_sales_channel_data = livestock_marketing_data.pop(
+                        'livestock_sales_channel')
+                    livestock_marketing = LivestockMarketing.objects.create(
+                        production_livestock=production_livestock, **livestock_marketing_data)
+                    LivestockSalesChannel.objects.create(
+                        livestock_marketing=livestock_marketing, **livestock_sales_channel_data)
+
+                for livestock_bovine_cycle_data in livestock_bovine_cycle_data:
+                    LivestockBovineCycle.objects.create(
+                        production_livestock=production_livestock, **livestock_bovine_cycle_data)
+                for livestock_sheep_cycle_data in livestock_sheep_cycle_data:
+                    LivestockSheepCycle.objects.create(
+                        production_livestock=production_livestock, **livestock_sheep_cycle_data)
+                for livestock_goat_cycle_data in livestock_goat_cycle_data:
+                    LivestockGoatCycle.objects.create(
+                        production_livestock=production_livestock, **livestock_goat_cycle_data)
+                for livestock_pig_cycle_data in livestock_pig_cycle_data:
+                    LivestockPigCycle.objects.create(
+                        production_livestock=production_livestock, **livestock_pig_cycle_data)
+                for livestock_llama_cycle_data in livestock_llama_cycle_data:
+                    LivestockLlamaCycle.objects.create(
+                        production_livestock=production_livestock, **livestock_llama_cycle_data)
+                for livestock_poultry_cycle_data in livestock_poultry_cycle_data:
+                    LivestockPoultryCycle.objects.create(
+                        production_livestock=production_livestock, **livestock_poultry_cycle_data)
+                for livestock_rabbit_cycle_data in livestock_rabbit_cycle_data:
+                    LivestockRabbitCycle.objects.create(
+                        production_livestock=production_livestock, **livestock_rabbit_cycle_data)
+                for livestock_beekeeping_cycle_data in livestock_beekeeping_cycle_data:
+                    LivestockBeekeepingCycle.objects.create(
+                        production_livestock=production_livestock, **livestock_beekeeping_cycle_data)
+                for livestock_aquaculture_cycle_data in livestock_aquaculture_cycle_data:
+                    LivestockAquacultureCycle.objects.create(
+                        production_livestock=production_livestock, **livestock_aquaculture_cycle_data)
+                for livestock_animal_pens_data in livestock_animal_pens_data:
+                    LivestockAnimalPens.objects.create(
+                        production_livestock=production_livestock, **livestock_animal_pens_data)
+
+            for production_agroindustrial_data in production_agroindustrial_data:
+                agroindustrial_tools_data = production_agroindustrial_data.pop(
+                    'agroindustrial_tools')
+                agroindustrial_food_product_data = production_agroindustrial_data.pop(
+                    'agroindustrial_food_product')
+                agroindustrial_handmande_product_data = production_agroindustrial_data.pop(
+                    'agroindustrial_handmande_product')
+
+                production_agroindustrial = ProductionAgroindustrial.objects.create(
+                    production=production, **production_agroindustrial_data)
+
+                for agroindustrial_tools_data in agroindustrial_tools_data:
+                    AgroindustrialTools.objects.create(
+                        production_agroindustrial=production_agroindustrial, **agroindustrial_tools_data)
+
+                for agroindustrial_food_product_data in agroindustrial_food_product_data:
+                    AgroindustrialFoodProduct.objects.create(
+                        production_agroindustrial=production_agroindustrial, **agroindustrial_food_product_data)
+
+                for agroindustrial_handmande_product_data in agroindustrial_handmande_product_data:
+                    AgroindustrialHandmandeProduct.objects.create(
+                        production_agroindustrial=production_agroindustrial, **agroindustrial_handmande_product_data)
+
+        return pollster
