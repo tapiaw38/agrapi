@@ -526,6 +526,8 @@ class InstallationBarnSerializer(serializers.ModelSerializer):
         model = InstallationBarn
         fields = (
             'id',
+            'lenght',
+            'width',
             'surface',
             'lat',
             'lng',
@@ -697,8 +699,8 @@ class VehicleSerializer(serializers.ModelSerializer):
         fields = (
             'id',
             'name_vehicle',
+            'domine',
             'use_trailer',
-            'type_trailer',
             'use_semitrailer',
         )
 
