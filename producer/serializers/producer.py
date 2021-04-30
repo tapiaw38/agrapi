@@ -699,7 +699,7 @@ class VehicleSerializer(serializers.ModelSerializer):
         fields = (
             'id',
             'name_vehicle',
-            'domine',
+            'domain',
             'use_trailer',
             'use_semitrailer',
         )
