@@ -752,6 +752,7 @@ class ProducerSerializer(WritableNestedModelSerializer):
             'gender',
             'phone_number',
             'another_phone_number',
+            'enail',
             'producer_home',
             'producer_person',
             'producer_vehicle',
