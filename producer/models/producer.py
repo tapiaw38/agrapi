@@ -35,12 +35,14 @@ class Producer(ProduModel):
         message="Debes ingresar un número con el siguiente formato: 3837430000. Hasta 10 digitos."
     )
     phone_number = models.CharField(
-        validators=[phone_regex], max_length=10, blank=True, null=True)
+        validators=[phone_regex], max_length=10, blank=True, null=True
+    )
+
     another_phone_number = models.CharField(
-        validators=[phone_regex], max_length=10, blank=True, null=True)
+        validators=[phone_regex], max_length=10, blank=True, null=True
+    )
 
     email = models.EmailField(
-        'email addres',
         blank=True,
         null=True,
     )
