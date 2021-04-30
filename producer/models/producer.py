@@ -41,10 +41,6 @@ class Producer(ProduModel):
 
     email = models.EmailField(
         'email addres',
-        unique=True,
-        error_messages={
-            'unique': 'There is already a user with this email.',
-        },
         blank=True,
         null=True,
     )
