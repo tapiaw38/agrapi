@@ -526,7 +526,7 @@ class InstallationBarnSerializer(serializers.ModelSerializer):
         model = InstallationBarn
         fields = (
             'id',
-            'lenght',
+            'height',
             'width',
             'surface',
             'lat',
