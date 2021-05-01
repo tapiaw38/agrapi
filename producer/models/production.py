@@ -14,7 +14,7 @@ class Production(models.Model):
         "producer.Producer",
         related_name='production',
         on_delete=models.CASCADE
-        )
+    )
     is_resident = models.BooleanField(default=False)
     district = models.CharField(max_length=50, blank=True, null=True)
     width = models.FloatField(default=0)
@@ -49,7 +49,7 @@ class Production(models.Model):
         else:
             return "A valid unit of measure was not selected."
 
-       super(Production, self).save(*args, **kwargs) # Call the real save() method
+        super(Production, self).save(*args, **kwargs)
 
     def __str__(self):
         return 'Producción {}'.format(self.producer)
