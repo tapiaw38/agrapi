@@ -28,14 +28,7 @@ class Production(models.Model):
     has_renaf = models.BooleanField(default=False)
 
     def save(self, *args, **kwargs):
-        """
-        Method to calculate the area before saving the data.
-        Length units:
-        0 = m
-        1 = dam
-        2 = hm
-        3 = km
-        """
+
         if self.length_unit == 0:
             self.surface = (self.width * self.height) * 1
         elif self.length_unit == 1:
