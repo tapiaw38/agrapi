@@ -19,7 +19,7 @@ class Production(models.Model):
     district = models.CharField(max_length=50, blank=True, null=True)
     width = models.FloatField(default=0)
     height = models.FloatField(default=0)
-    length_unit = models.PositiveIntegerField(default=0)
+    length_unit = models.IntegerField(default=0)
     surface = models.FloatField(default=0)
     road_state = models.CharField(max_length=200, blank=True, null=True)
     lat = models.FloatField(default=0)
