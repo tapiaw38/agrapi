@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'c@so)i40gdaix-+d_$w7&q(*yuo9xjf4ae7=s(+5t@1g99&kka'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1', 'www.agrapi.com.ar', 'agrapi.com.ar']
 
