@@ -31,9 +31,15 @@ class Production(models.Model):
         return 'Producción {}'.format(self.producer)
 
     def save(self, *args, **kwargs):
-        print("entrar al metodo save")
+        """
+        calculate length measurement before saving.
+        3 -> kilometer (km) = 1000 m
+        2 -> hectometer (hm) 100 m
+        1 -> decameter (dam) 10 m
+        0 -> meter (m) = 1 m
+        """
+
         if self.length_unit == 0:
-            print("entrar en lengrh unit 0")
             self.surface = (self.width * self.height) * 1
         elif self.length_unit == 1:
             self.surface = (self.width * self.height) * 10
@@ -42,7 +48,7 @@ class Production(models.Model):
         elif self.length_unit == 3:
             self.surface = (self.width * self.height) * 1000
         else:
-            return "No imgreso una unidad valida"
+            return "Length unit no valid"
 
         # Call the real save() method
         super(Production, self).save(*args, **kwargs)
