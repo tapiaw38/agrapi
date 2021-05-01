@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'c@so)i40gdaix-+d_$w7&q(*yuo9xjf4ae7=s(+5t@1g99&kka'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','www.agrapi.com.ar','agrapi.com.ar']
+ALLOWED_HOSTS = ['127.0.0.1', 'www.agrapi.com.ar', 'agrapi.com.ar']
 
 # Users & Authentication
 AUTH_USER_MODEL = 'user.User'
@@ -51,7 +51,7 @@ INSTALLED_APPS = [
     'django_filters',
     # Cors
     'corsheaders',
-    #Local apps
+    # Local apps
     'user',
     'producer',
 ]
@@ -67,7 +67,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     # Cors
     'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.common.CommonMiddleware' ,
+    'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'agrapi.urls'
@@ -155,10 +155,10 @@ MEDIA_ROOT = (
 #STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Config image file
-CONTENT_TYPES = ['image','video']
+CONTENT_TYPES = ['image', 'video']
 MAX_UPLOAD_SIZE = '5242880'
 
-APPEND_SLASH=False
+APPEND_SLASH = False
 
 # Django Rest Framework
 REST_FRAMEWORK = {
