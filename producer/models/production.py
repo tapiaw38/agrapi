@@ -36,16 +36,14 @@ class Production(models.Model):
         2 = hm
         3 = km
         """
-        surface = self.width * self.height
-
         if self.length_unit == 0:
-            self.surface = surface * 1
+            self.surface = (self.width * self.height) * 1
         elif self.length_unit == 1:
-            self.surface = surface * 10
+            self.surface = (self.width * self.height) * 10
         elif self.length_unit == 2:
-            self.surface = surface * 100
+            self.surface = (self.width * self.height) * 100
         elif self.length_unit == 3:
-            self.surface = surface * 1000
+            self.surface = (self.width * self.height) * 1000
         else:
             return "A valid unit of measure was not selected."
 
