@@ -20,7 +20,7 @@ class Production(models.Model):
     width = models.FloatField(default=0)
     height = models.FloatField(default=0)
     length_unit = models.IntegerField(default=0)
-    surface = models.FloatField(default=0)
+    surface = models.FloatField(blank=True, null=True)
     road_state = models.CharField(max_length=200, blank=True, null=True)
     lat = models.FloatField(default=0)
     lng = models.FloatField(default=0)
