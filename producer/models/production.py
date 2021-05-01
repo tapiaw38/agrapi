@@ -27,6 +27,9 @@ class Production(models.Model):
     has_renspa = models.BooleanField(default=False)
     has_renaf = models.BooleanField(default=False)
 
+    def __str__(self):
+        return 'Producción {}'.format(self.producer)
+
     def save(self, *args, **kwargs):
 
         if self.length_unit == 0:
@@ -37,10 +40,6 @@ class Production(models.Model):
             self.surface = (self.width * self.height) * 100
         elif self.length_unit == 3:
             self.surface = (self.width * self.height) * 1000
-        else:
-            return "A valid unit of measure was not selected."
 
+        # Call the real save() method
         super(Production, self).save(*args, **kwargs)
-
-    def __str__(self):
-        return 'Producción {}'.format(self.producer)
