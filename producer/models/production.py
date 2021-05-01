@@ -41,6 +41,8 @@ class Production(models.Model):
             self.surface = (self.width * self.height) * 100
         elif self.length_unit == 3:
             self.surface = (self.width * self.height) * 1000
+        else:
+            return "No imgreso una unidad valida"
 
         # Call the real save() method
         super(Production, self).save(*args, **kwargs)
