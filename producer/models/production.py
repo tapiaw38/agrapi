@@ -29,13 +29,13 @@ class Production(models.Model):
 
     def save(self, *args, **kwargs):
 
-        if self.length_unit == 0:
+        if self.length_unit == "0":
             self.surface = (self.width * self.height) * 1
-        elif self.length_unit == 1:
+        elif self.length_unit == "1":
             self.surface = (self.width * self.height) * 10
-        elif self.length_unit == 2:
+        elif self.length_unit == "2":
             self.surface = (self.width * self.height) * 100
-        elif self.length_unit == 3:
+        elif self.length_unit == "3":
             self.surface = (self.width * self.height) * 1000
         else:
             return "A valid unit of measure was not selected."
