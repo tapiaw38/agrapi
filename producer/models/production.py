@@ -20,7 +20,7 @@ class Production(models.Model):
     width = models.FloatField(default=0)
     height = models.FloatField(default=0)
     length_unit = models.IntegerField(default=0)
-    surface = models.FloatField(blank=True, null=True)
+    surface = models.FloatField(default=0)
     road_state = models.CharField(max_length=200, blank=True, null=True)
     lat = models.FloatField(default=0)
     lng = models.FloatField(default=0)
@@ -31,8 +31,9 @@ class Production(models.Model):
         return 'Producción {}'.format(self.producer)
 
     def save(self, *args, **kwargs):
-
+        print("entrar al metodo save")
         if self.length_unit == 0:
+            print("entrar en lengrh unit 0")
             self.surface = (self.width * self.height) * 1
         elif self.length_unit == 1:
             self.surface = (self.width * self.height) * 10
