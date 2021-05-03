@@ -19,12 +19,16 @@ class ProductionAgricultural(models.Model):
     destination = models.CharField(max_length=20, blank=True, null=True)
     sowing = models.CharField(max_length=20, blank=True, null=True)
     type_sowing = models.CharField(max_length=20, blank=True, null=True)
+    amount = models.IntegerField(default=0)
+    time_unit = models.IntegerField(default=0)
     age = models.PositiveIntegerField(default=0)
     perimeter_closure = models.CharField(max_length=100, blank=True, null=True)
+    distance_plants = models.FloatField(default=0)
+    distance_rows = models.FloatField(default=0)
     suggestion = models.CharField(max_length=100, blank=True, null=True)
 
     def __str__(self):
-        return 'Producción Agricola: {}'.format(self.production.producer)
+        return 'Producción Agricola: {}'.format(self.production)
 
     def save(self, *args, **kwargs):
         """
@@ -33,6 +37,11 @@ class ProductionAgricultural(models.Model):
         2 -> hectometer (hm) 100 m
         1 -> decameter (dam) 10 m
         0 -> meter (m) = 1 m
+
+        calculate the age of the plantation before saving.
+        2 -> ages (y) = 365 d
+        1 -> months (m) = 30 d
+        0 -> days (d) = 1 d
         """
         if self.length_unit == 0:
             self.surface = (self.width * self.height) * 1
@@ -45,5 +54,14 @@ class ProductionAgricultural(models.Model):
         else:
             return "Length unit no valid"
 
-        # Call the real save() method
+        if self.time_unit == 0:
+            self.age = self.amount*1
+        elif self.time_unit == 1:
+            self.age = self.amount*30
+        elif self.time_unit == 2:
+            self.age = self.amount*360
+        else:
+            return "Time unit no valid"
+
+            # Call the real save() method
         super(ProductionAgricultural, self).save(*args, **kwargs)
